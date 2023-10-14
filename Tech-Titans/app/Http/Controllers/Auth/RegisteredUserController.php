@@ -38,6 +38,7 @@ class RegisteredUserController extends Controller
             'last_name' => ['required', 'string', 'max:191'],
             'email' => ['required', 'string', 'email', 'max:191', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $user = User::create([
@@ -46,8 +47,16 @@ class RegisteredUserController extends Controller
             'name' => $request->first_name.' '.$request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            
         ]);
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $fileName = time().'.'.$ext;
+            $file->move('uploads/patients/',$fileName);
+            $user->image = $fileName;
 
+        }
         // username
         $username = config('app.initial_username') + $user->id;
         $user->username = $username;

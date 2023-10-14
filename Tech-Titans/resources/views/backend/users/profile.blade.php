@@ -52,6 +52,7 @@
                         ['name' => 'login_count'],
                         ['name' => 'last_login', 'type' => 'datetime'],
                         ['name' => 'last_ip'],
+                        
                     ]; ?>
                     @foreach ($fields_array as $field)
                     <tr>

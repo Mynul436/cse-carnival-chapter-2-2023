@@ -1,0 +1,13 @@
+{
+    "name": "DoctorsBlog",
+    "alias": "doctorsblog",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DoctorsBlog\\Providers\\DoctorsBlogServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

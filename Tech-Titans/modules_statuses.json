@@ -4,5 +4,7 @@
     "Comment": true,
     "Category": true,
     "Test": true,
-    "T": true
+    "T": true,
+    "DoctorsBlog": true,
+    "BookAppointment": true
 }

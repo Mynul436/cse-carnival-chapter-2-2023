@@ -1,0 +1,13 @@
+{
+    "name": "BookAppointment",
+    "alias": "bookappointment",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\BookAppointment\\Providers\\BookAppointmentServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

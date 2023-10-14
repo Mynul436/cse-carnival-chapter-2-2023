@@ -60,11 +60,20 @@ class PermissionRoleTableSeeder extends Seeder
         ]);
         echo "\n _Comments_ Permissions Created.";
 
+        Artisan::call('auth:permission', [
+            'name' => 'doctorsblogs',
+        ]);
+        echo "\n _DoctorsBlogs_ Permissions Created.";
+        echo "\n\n";
+        Artisan::call('auth:permission', [
+            'name' => 'bookappointments',
+        ]);
+        echo "\n _BookAppointments_ Permissions Created.";
         echo "\n\n";
 
         // Assign Permissions to Roles
         $admin->givePermissionTo(Permission::all());
-        $manager->givePermissionTo('view_backend');
+        // $manager->givePermissionTo('view_backend');
         // $executive->givePermissionTo('view_backend');
 
         Schema::enableForeignKeyConstraints();

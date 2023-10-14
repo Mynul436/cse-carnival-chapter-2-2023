@@ -1,1 +1,1 @@
-<img src="{{asset('img/logo-with-text.jpg')}}" style="height: 50px;">
+<img src="https://img.freepik.com/premium-vector/patient-is-consulting-with-doctor-hospital_152995-120.jpg?size=626&ext=jpg" style="height: 150px;">

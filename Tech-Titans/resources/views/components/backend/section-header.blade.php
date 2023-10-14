@@ -43,7 +43,7 @@
     <div class="btn-toolbar d-block text-end" role="toolbar" aria-label="Toolbar with buttons">
         @if (Str::endsWith(Route::currentRouteName(), 'create'))
         <x-backend.buttons.return-back small="true" />
-        <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary btn-sm ms-1" data-toggle="tooltip" title="{{ __($module_title) }} List"><i class="fas fa-list-ul"></i> List</a>
+        {{-- <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary btn-sm ms-1" data-toggle="tooltip" title="{{ __($module_title) }} List"><i class="fas fa-list-ul"></i> List</a> --}}
 
         @elseif (Str::endsWith(Route::currentRouteName(), 'edit'))
         <x-backend.buttons.return-back small="true" />

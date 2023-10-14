@@ -18,7 +18,7 @@
                         <img class="block lg:hidden h-10 w-auto" src="{{asset('img/logo-with-text.jpg')}}" alt="{{ app_name() }}">
                     </a>
                     <a href="/">
-                        <img class="hidden lg:block h-12 w-auto" src="https://scontent-ccu1-1.xx.fbcdn.net/v/t39.30808-6/386324071_270612962621170_4832527947018833803_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOOYzEiH18m5wpNtSGHiF1mcfpL3PZnjmZx-kvc9meOTZi3F18VEQf3oWQMsI2vyEcRCnaiGE7up-wQ5kL5T4h&_nc_ohc=T62cPlKkqh8AX9atgC7&_nc_ht=scontent-ccu1-1.xx&oh=00_AfCIsVefJ23Gl6gbykm0mF-Somtu1yd5sY3VN5Wffk2k0g&oe=652F8691" alt="{{ app_name() }}">
+                        <img class="hidden lg:block h-12 w-auto" src="{{asset('img/logo-with-text-dark.png')}}" alt="{{ app_name() }}">
                     </a>
                 </div>
                 <div class="hidden sm:block sm:ml-6">
@@ -77,12 +77,12 @@
 
                         @can('view_backend')
                         <a href='{{ route("backend.dashboard") }}' class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-                            <i class="fas fa-tachometer-alt fa-fw"></i>&nbsp;{{__('Dashboard')}}
+                            <i class="fas fa-tachometer-alt fa-fw"></i>&nbsp;{{__('Admin Dashboard')}}
                         </a>
                         @endif
-                        {{-- <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
+                        <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
                             <i class="fas fa-user fa-fw"></i>&nbsp;{{ Auth::user()->name }}
-                        </a> --}}
+                        </a>
                         <a href="{{ route('frontend.users.profileEdit', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
                             <i class="fas fa-cogs fa-fw"></i>&nbsp;{{__('Settings')}}
                         </a>

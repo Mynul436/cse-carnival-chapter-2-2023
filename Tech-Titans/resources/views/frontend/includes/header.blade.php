@@ -12,13 +12,13 @@
                     </svg>
                 </button>
             </div>
-            {{-- <div class="flex-1 flex items-center justify-center content-center sm:items-stretch sm:justify-start">
+            <div class="flex-1 flex items-center justify-center content-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
                     <a href="/">
                         <img class="block lg:hidden h-10 w-auto" src="{{asset('img/logo-with-text.jpg')}}" alt="{{ app_name() }}">
                     </a>
                     <a href="/">
-                        <img class="hidden lg:block h-12 w-auto" src="{{asset('img/logo-with-text-dark.png')}}" alt="{{ app_name() }}">
+                        <img class="hidden lg:block h-12 w-auto" src="https://scontent-ccu1-1.xx.fbcdn.net/v/t39.30808-6/386324071_270612962621170_4832527947018833803_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHOOYzEiH18m5wpNtSGHiF1mcfpL3PZnjmZx-kvc9meOTZi3F18VEQf3oWQMsI2vyEcRCnaiGE7up-wQ5kL5T4h&_nc_ohc=T62cPlKkqh8AX9atgC7&_nc_ht=scontent-ccu1-1.xx&oh=00_AfCIsVefJ23Gl6gbykm0mF-Somtu1yd5sY3VN5Wffk2k0g&oe=652F8691" alt="{{ app_name() }}">
                     </a>
                 </div>
                 <div class="hidden sm:block sm:ml-6">
@@ -37,7 +37,7 @@
                         </a>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div class="ml-3 relative" x-data="{ isUserMenuOpen: false, isLocalMenuOpen: false }">
                     <div class="flex flex-row">

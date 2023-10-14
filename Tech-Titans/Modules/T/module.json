@@ -1,0 +1,13 @@
+{
+    "name": "T",
+    "alias": "t",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\T\\Providers\\TServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

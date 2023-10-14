@@ -1,0 +1,8 @@
+{
+    "Article": true,
+    "Tag": true,
+    "Comment": true,
+    "Category": true,
+    "Test": true,
+    "T": true
+}

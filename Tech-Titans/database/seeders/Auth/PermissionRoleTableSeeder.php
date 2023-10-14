@@ -75,7 +75,9 @@ class PermissionRoleTableSeeder extends Seeder
         $super_admin->givePermissionTo(Permission::all());
 
         $admin->givePermissionTo(Permission::all());
-        $manager->givePermissionTo('view_backend');
+        $manager->givePermissionTo(['view_backend','edit_settings','view_posts','view_comments','add_comments','edit_comments'
+        ,'delete_comments','restore_comments','view_bookappointments','add_bookappointments','edit_bookappointments',
+        'delete_bookappointments','restore_bookappointments','view_doctorsblogs']);
 
         // $executive->givePermissionTo('view_backend');
 

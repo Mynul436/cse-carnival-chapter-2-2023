@@ -26,15 +26,17 @@
     <div class="btn-toolbar d-block text-end" role="toolbar" aria-label="Toolbar with buttons">
         {{ $toolbar }}
     </div>
-    <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-        <i class="fas fa-user fa-fw"></i>&nbsp;{{ Auth::user()->name }}
-    </a>
-    <a href="{{ route('frontend.users.profileEdit', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-        <i class="fas fa-cogs fa-fw"></i>&nbsp;{{__('Settings')}}
-    </a>
-    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-        {{__('Logout')}}
-    </a>
+    <div class="d-flex justify-content-around gap-3 px-3 align-items-center">
+        <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="btn btn-info btn-sm px-2 py-2 text-sm" role="menuitem">
+            <i class="fas fa-user fa-fw"></i><b>&nbsp;{{ Auth::user()->name }}</b>
+        </a>
+        <a href="{{ route('frontend.users.profileEdit', encode_id(auth()->user()->id)) }}" class="btn btn-outline-secondary btn-sm px-4 py-2 text-sm fw-bold" role="menuitem">
+            <i class="fas fa-cogs fa-fw"></i>&nbsp;{{__('Settings')}}
+        </a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-outline-danger btn-sm px-4 py-2 text-sm fw-bold" role="menuitem">
+            {{__('Logout')}}
+        </a>
+    </div>
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         {{ csrf_field() }}
@@ -54,7 +56,7 @@
         @can('edit_'.$module_name)
         <x-buttons.edit route='{!!route("backend.$module_name.edit", $data)!!}' title="{{__('Edit')}} {{ ucwords(Str::singular($module_name)) }}" class="m-1" small="true" />
         @endcan
-        <a href="{{ route("backend.$module_name.index") }}" class="btn btn-secondary btn-sm" data-toggle="tooltip" title="{{ ucwords($module_name) }} List"><i class="fas fa-list"></i> List</a>
+        <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary btn-sm" data-toggle="tooltip" title="{{ ucwords($module_name) }} List"><i class="fas fa-list"></i> List</a>
         @endif
     </div>
     @endif

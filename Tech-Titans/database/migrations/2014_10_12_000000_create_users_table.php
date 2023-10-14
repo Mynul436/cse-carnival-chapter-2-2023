@@ -30,6 +30,8 @@ return new class extends Migration
             $table->integer('updated_by')->unsigned()->nullable();
             $table->integer('deleted_by')->unsigned()->nullable();
             $table->string('image')->nullable();
+            $table->tinyInteger('user_type')->default(0)->unsigned();
+            $table->string('mbbs_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

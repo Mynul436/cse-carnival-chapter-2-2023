@@ -42,9 +42,46 @@
                 <div class="mt-4">
                 <x-label for="image" :value="__('Image')" />
 
-                <x-input id="image" class="block mt-1 w-full" type="file" name="image" accept="image/*" required />
+                <x-input id="image" class="block mt-1 w-full" type="file" name="image" accept="image/*" />
                 </div>
+                <div class="mt-4">
+    <x-label for="User Type" :value="__('User Type')" />
 
+    <div class="mt-1">
+        <label for="doctor" class="inline-flex items-center">
+            <input type="radio" id="doctor" name="user" value="doctor" required>
+            <span class="ml-2">Doctor</span>
+        </label>
+    </div>
+
+    <div class="mt-1">
+        <label for="patient" class="inline-flex items-center">
+            <input type="radio" id="patient" name="user" value="patient"  required>
+            <span class="ml-2">Patient</span>
+        </label>
+    </div>
+</div>
+<div id="additionalInfo" class="mt-4" style="display: none;">
+<x-label for="mbbsid" :value="__('Doctor MBBS ID')" />
+
+<x-input id="mbbsid" class="block mt-1 w-full" type="text" name="mbbsid" :value="old('mbbsid')" required autofocus />
+</div>
+<script>
+    // Get the male radio button
+    const doctorRadioButton = document.getElementById('doctor');
+
+    // Get the div for additional info
+    const additionalInfoDiv = document.getElementById('additionalInfo');
+
+    // Add an event listener to the doctor radio button
+    doctorRadioButton.addEventListener('change', function () {
+        if (this.checked) {
+            additionalInfoDiv.style.display = 'block';
+        } else {
+            additionalInfoDiv.style.display = 'none';
+        }
+    });
+</script>
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />

@@ -124,10 +124,10 @@
 </div>
 
 <div class="row mb-3">
-    <div class="col-4">
+    {{-- <div class="col-4">
         <div class="form-group">
             <?php
-            $field_name = 'category_id';
+            $field_name = 'category_name';
             // $field_lable = __("article::$module_name.$field_name");
             $field_lable = label_case($field_name);
 
@@ -137,6 +137,20 @@
             ?>
             {{ html()->label($field_lable, $field_name) }} {!! fielf_required($required) !!}
             {{ html()->select($field_name, isset($$module_name_singular)?optional($$module_name_singular->$field_relation)->pluck('name', 'id'):'')->placeholder($field_placeholder)->class('form-control select2-category')->attributes(["$required"]) }}
+        </div>
+    </div> --}}
+    <div class="col-4">
+        <div class="form-group">
+            <?php
+            $field_name = 'category_name';
+            // $field_lable = __("article::$module_name.$field_name");
+            $field_lable = label_case($field_name);
+
+            $field_placeholder = $field_lable;
+            $required = "required";
+            ?>
+            {{ html()->label($field_lable, $field_name) }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
         </div>
     </div>
     <div class=" col-4">

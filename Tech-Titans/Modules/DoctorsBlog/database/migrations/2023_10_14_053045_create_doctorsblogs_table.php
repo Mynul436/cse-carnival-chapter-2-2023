@@ -32,6 +32,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text('intro')->nullable();
             $table->text('content')->nullable();
+            $table->longText('comment')->nullable();
+
             $table->string('type')->nullable();
             $table->integer('category_id')->unsigned()->nullable();
             $table->string('category_name')->nullable();
@@ -56,6 +58,8 @@ return new class extends Migration
             $table->string('created_by_alias')->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             $table->integer('deleted_by')->unsigned()->nullable();
+
+        
 
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

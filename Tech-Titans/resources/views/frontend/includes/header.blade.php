@@ -77,7 +77,7 @@
 
                         @can('view_backend')
                         <a href='{{ route("backend.dashboard") }}' class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-                            <i class="fas fa-tachometer-alt fa-fw"></i>&nbsp;{{__('Admin Dashboard')}}
+                            <i class="fas fa-tachometer-alt fa-fw"></i>&nbsp;{{__('Dashboard')}}
                         </a>
                         @endif
                         <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">

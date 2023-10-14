@@ -6,23 +6,21 @@
             <div class="table-responsive">
                 <table class="table table-hover table-responsive-sm" wire:loading.class="table-secondary">
                     <thead>
-                        <tr>
+                        <tr class="justify-content-around text-center">
                             <th>{{ __('labels.backend.users.fields.name') }}</th>
                             <th>{{ __('labels.backend.users.fields.email') }}</th>
                             <th>{{ __('labels.backend.users.fields.status') }}</th>
                             <th>DID</th>
                             <th>Requested Type</th>
-                            <!-- <th>{{ __('labels.backend.users.fields.roles') }}</th> -->
                             <th>{{ __('labels.backend.users.fields.permissions') }}</th>
                             <th>{{ __('labels.backend.users.fields.social') }}</th>
-                            
-
-                            <th class="text-end">{{ __('labels.backend.action') }}</th>
+                            <!-- <th>{{ __('labels.backend.users.fields.roles') }}</th> -->
+                            <th class="ms-2">{{ __('labels.backend.action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                        <tr>
+                        <tr class="text-center">
                             <td>
                                 <strong>
                                     <a href="{{route('backend.users.show', $user->id)}}">
@@ -39,8 +37,6 @@
                             <td>{{ $user->mbbs_id }}</td>
                            
                             <td>{{ $user->user_type == 1  ? 'Doctor' : 'Patient' }}</td>
-                            
-                           
                             <td>
                                 @if($user->getAllPermissions()->count() > 0)
                                 <ul>
@@ -51,22 +47,23 @@
                                 @endif
                             </td>
                             <td>
-                                <ul class="list-unstyled d-flex">
+                                <div class="d-flex flex-row flex-wrap gap-1">
                                     @foreach ($user->providers as $provider)
-                                    <li>
-                                        <i class="fab fa-{{ $provider->provider }}"></i> {{ label_case($provider->provider) }}
-                                    </li>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab fa-{{ $provider->provider }}"></i>
+                                            {{ label_case($provider->provider) }}
+                                        </div>
                                     @endforeach
-                                </ul>
+                                </div>
                             </td>
 
-                            <td class="text-end">
+                            <td>
                                 <a href="{{route('backend.users.show', $user)}}" class="btn btn-success btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.show')}}"><i class="fas fa-desktop"></i></a>
                                 @can('edit_users')
                                 <a href="{{route('backend.users.edit', $user)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.edit')}}"><i class="fas fa-wrench"></i></a>
                                 <a href="{{route('backend.users.changePassword', $user)}}" class="btn btn-info btn-sm mt-1" data-toggle="tooltip" title="{{__('labels.backend.changePassword')}}"><i class="fas fa-key"></i></a>
                                 @if ($user->status != 2)
-                                <a href="{{route('backend.users.block', $user)}}" class="btn btn-danger btn-sm mt-1" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.block')}}" data-confirm="Are you sure?"><i class="fas fa-ban"></i></a>
+                                <a href="{{route('backend.users.block', $user)}}" class="btn btn-warning btn-sm mt-1" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.block')}}" data-confirm="Are you sure?"><i class="fas fa-ban"></i></a>
                                 @endif
                                 @if ($user->status == 2)
                                 <a href="{{route('backend.users.unblock', $user)}}" class="btn btn-info btn-sm mt-1" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.unblock')}}" data-confirm="Are you sure?"><i class="fas fa-check"></i></a>
@@ -76,7 +73,7 @@
                                 <a href="{{route('backend.users.emailConfirmationResend', $user->id)}}" class="btn btn-primary btn-sm mt-1" data-toggle="tooltip" title="Send Confirmation Email"><i class="fas fa-envelope"></i></a>
                                 @endif
                                 @endcan
-                            </td>
+                            </td>                        
                         </tr>
                         @endforeach
                     </tbody>

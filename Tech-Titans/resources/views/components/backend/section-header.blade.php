@@ -26,9 +26,19 @@
     <div class="btn-toolbar d-block text-end" role="toolbar" aria-label="Toolbar with buttons">
         {{ $toolbar }}
     </div>
+    <a href="{{ route('frontend.users.profile', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
+        <i class="fas fa-user fa-fw"></i>&nbsp;{{ Auth::user()->name }}
+    </a>
+    <a href="{{ route('frontend.users.profileEdit', encode_id(auth()->user()->id)) }}" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
+        <i class="fas fa-cogs fa-fw"></i>&nbsp;{{__('Settings')}}
+    </a>
     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
         {{__('Logout')}}
     </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
     @else
     <div class="btn-toolbar d-block text-end" role="toolbar" aria-label="Toolbar with buttons">
         @if (Str::endsWith(Route::currentRouteName(), 'create'))

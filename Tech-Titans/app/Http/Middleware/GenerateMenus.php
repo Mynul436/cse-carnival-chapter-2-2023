@@ -76,6 +76,18 @@ class GenerateMenus
                             'class' => 'nav-link',
                         ]);
 
+                        $menu->add('<i class="nav-icon fas fa-comments"></i> Comments', [
+                            'route' => 'backend.comments.index',
+                            'class' => 'nav-item',
+                        ])
+                            ->data([
+                                'order' => 85,
+                                'activematches' => ['admin/comments*'],
+                                'permission' => ['view_comments'],
+                            ])
+                            ->link->attr([
+                                'class' => 'nav-link',
+                            ]);
                     // Notifications
                     $menu->add('<i class="nav-icon fas fa-bell"></i> Notifications', [
                         'route' => 'backend.notifications.index',

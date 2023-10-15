@@ -6,5 +6,6 @@
     "Test": true,
     "T": true,
     "DoctorsBlog": true,
-    "BookAppointment": true
+    "BookAppointment": true,
+    "Chat": true
 }

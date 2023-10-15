@@ -18,7 +18,7 @@
                         <img class="block lg:hidden h-10 w-auto" src="{{asset('img/logo-with-text.jpg')}}" alt="{{ app_name() }}">
                     </a>
                     <a href="/">
-                        <img class="hidden lg:block h-12 w-auto" src="{{asset('img/logo-with-text-dark.png')}}" alt="{{ app_name() }}">
+                        <img class="hidden lg:block h-12 w-auto" src="https://as2.ftcdn.net/v2/jpg/06/25/43/37/1000_F_625433743_ZSrPQSGt1931SlV5uKCpfAnwN4mHD1cz.jpg"  alt="{{ app_name() }}">
                     </a>
                 </div>
                 <div class="hidden sm:block sm:ml-6">

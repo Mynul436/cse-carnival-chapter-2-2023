@@ -24,18 +24,18 @@ class GenerateMenus
         \Menu::make('admin_sidebar', function ($menu) {
 
             // Chats
-            $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
-                'route' => 'backend.chats.index',
-                'class' => 'nav-item',
-            ])
-            ->data([
-                'order'         => 77,
-                'activematches' => ['admin/chats*'],
-                'permission'    => ['view_chats'],
-            ])
-            ->link->attr([
-                'class' => 'nav-link',
-            ]);
+            // $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
+            //     'route' => 'backend.chats.index',
+            //     'class' => 'nav-item',
+            // ])
+            // ->data([
+            //     'order'         => 77,
+            //     'activematches' => ['admin/chats*'],
+            //     'permission'    => ['view_chats'],
+            // ])
+            // ->link->attr([
+            //     'class' => 'nav-link',
+            // ]);
         })->sortBy('order');
 
         return $next($request);

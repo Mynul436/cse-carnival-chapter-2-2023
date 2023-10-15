@@ -124,6 +124,18 @@ class GenerateMenus
                         ->link->attr([
                             'class' => 'nav-link',
                         ]);
+                        $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
+                            'route' => 'backend.chats.index',
+                            'class' => 'nav-item',
+                        ])
+                        ->data([
+                            'order'         => 77,
+                            'activematches' => ['admin/chats*'],
+                            'permission'    => ['view_chats'],
+                        ])
+                        ->link->attr([
+                            'class' => 'nav-link',
+                        ]);
 
                     // Backup
                     $menu->add('<i class="nav-icon fas fa-archive"></i> Backups', [
@@ -244,6 +256,33 @@ class GenerateMenus
                         'href' => '#',
                     ]);
 
+                    $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
+                        'route' => 'backend.chats.index',
+                        'class' => 'nav-item',
+                    ])
+                    ->data([
+                        'order'         => 77,
+                        'activematches' => ['admin/chats*'],
+                        'permission'    => ['view_chats'],
+                    ])
+                    ->link->attr([
+                        'class' => 'nav-link',
+                    ]);
+
+                       // Notifications
+                       $menu->add('<i class="nav-icon fas fa-bell"></i> Notifications', [
+                        'route' => 'backend.notifications.index',
+                        'class' => 'nav-item',
+                    ])
+                        ->data([
+                            'order' => 99,
+                            'activematches' => 'admin/notifications*',
+                            'permission' => [],
+                        ])
+                        ->link->attr([
+                            'class' => 'nav-link',
+                        ]);
+
                     // Submenu: Posts
                     $articles_menu->add('<i class="nav-icon fas fa-file-alt"></i> ' . __('Posts'), [
                         'route' => 'backend.posts.index',
@@ -303,6 +342,32 @@ class GenerateMenus
                         ->link->attr([
                             'class' => 'nav-link',
                         ]);
+                        $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
+                            'route' => 'backend.chats.index',
+                            'class' => 'nav-item',
+                        ])
+                        ->data([
+                            'order'         => 77,
+                            'activematches' => ['admin/chats*'],
+                            'permission'    => ['view_chats'],
+                        ])
+                        ->link->attr([
+                            'class' => 'nav-link',
+                        ]);
+
+                           // Notifications
+                    $menu->add('<i class="nav-icon fas fa-bell"></i> Notifications', [
+                        'route' => 'backend.notifications.index',
+                        'class' => 'nav-item',
+                    ])
+                        ->data([
+                            'order' => 99,
+                            'activematches' => 'admin/notifications*',
+                            'permission' => [],
+                        ])
+                        ->link->attr([
+                            'class' => 'nav-link',
+                        ]);
                     // BookAppointments
                     $menu->add('<i class="nav-icon fa-regular fa-sun"></i> ' . __('BookAppointments'), [
                         'route' => 'backend.bookappointments.index',
@@ -318,6 +383,7 @@ class GenerateMenus
                         ]);
                 }
 
+                
 
                 // Access Permission Check
                 $menu->filter(function ($item) {

@@ -1,8 +1,23 @@
 @extends('frontend.layouts.app')
 
-@section('title') {{app_name()}} @endsection
+@section('title') {{ app_name() }} @endsection
 
 @section('content')
+@php
+use Carbon\Carbon;
+$user = auth()->user();
+if ($user && $user->user_type == 1) {
+    $appointments = DB::table('bookappointments')
+        ->where('name', $user->name)
+        ->whereDate('published_at', '>', Carbon::now())
+        ->count();
+
+    if ($appointments > 0) {
+        $message = '<div class="alert alert-warning alert-dismissible fade show" role="alert"><i class="fas fa-exclamation-triangle"></i> You have ' . $appointments . ' upcoming appointments<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+        flash($message);
+    }
+}
+@endphp
 
 <section class="bg-gray-100 mb-20">
     <div class="container mx-auto flex px-1 sm:px-20 py-20 md:flex-row flex-col items-center">

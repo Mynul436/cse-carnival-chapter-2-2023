@@ -255,19 +255,20 @@ class GenerateMenus
                         'class' => 'nav-link nav-group-toggle',
                         'href' => '#',
                     ]);
-
+                    
                     $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
                         'route' => 'backend.chats.index',
                         'class' => 'nav-item',
                     ])
                     ->data([
-                        'order'         => 77,
+                        'order'         => 100,
                         'activematches' => ['admin/chats*'],
                         'permission'    => ['view_chats'],
                     ])
                     ->link->attr([
                         'class' => 'nav-link',
                     ]);
+
 
                        // Notifications
                        $menu->add('<i class="nav-icon fas fa-bell"></i> Notifications', [
@@ -342,18 +343,9 @@ class GenerateMenus
                         ->link->attr([
                             'class' => 'nav-link',
                         ]);
-                        $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
-                            'route' => 'backend.chats.index',
-                            'class' => 'nav-item',
-                        ])
-                        ->data([
-                            'order'         => 77,
-                            'activematches' => ['admin/chats*'],
-                            'permission'    => ['view_chats'],
-                        ])
-                        ->link->attr([
-                            'class' => 'nav-link',
-                        ]);
+
+                        
+
 
                            // Notifications
                     $menu->add('<i class="nav-icon fas fa-bell"></i> Notifications', [
@@ -368,6 +360,20 @@ class GenerateMenus
                         ->link->attr([
                             'class' => 'nav-link',
                         ]);
+                        
+                        $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Chats'), [
+                            'route' => 'backend.chats.index',
+                            'class' => 'nav-item',
+                        ])
+                        ->data([
+                            'order'         => 77,
+                            'activematches' => ['admin/chats*'],
+                            'permission'    => ['view_chats'],
+                        ])
+                        ->link->attr([
+                            'class' => 'nav-link',
+                        ]);
+
                     // BookAppointments
                     $menu->add('<i class="nav-icon fa-regular fa-sun"></i> ' . __('BookAppointments'), [
                         'route' => 'backend.bookappointments.index',

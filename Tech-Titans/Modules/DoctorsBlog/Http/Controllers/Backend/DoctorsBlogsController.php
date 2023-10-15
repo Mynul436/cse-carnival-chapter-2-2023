@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\BackendBaseController;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
+use Modules\DoctorsBlog\Models\DoctorsBlog;
 
 class DoctorsBlogsController extends BackendBaseController
 {
@@ -70,7 +71,18 @@ class DoctorsBlogsController extends BackendBaseController
             ->orderColumns(['id'], '-:column $1')
             ->make(true);
     }
-    
+    public function saveComment(Request $request)
+{
+    dd($request->all());
+    $comment = DoctorsBlog::find(1);
+    // Update the comment in the database
+   
+    $comment->comment = $request->input('comment');
+    $comment->save();
+
+    return response()->json(['message' => 'Comment saved successfully']);
+}
+
 
 
 }

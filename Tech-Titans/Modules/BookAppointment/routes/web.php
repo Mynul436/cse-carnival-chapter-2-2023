@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  Modules\DoctorsBlog\Http\Controllers\Backend;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +32,7 @@ Route::group(['namespace' => '\Modules\BookAppointment\Http\Controllers\Frontend
     Route::get("$module_name", ['as' => "$module_name.index", 'uses' => "$controller_name@index"]);
     Route::get("$module_name/{id}/{slug?}", ['as' => "$module_name.show", 'uses' => "$controller_name@show"]);
 });
-
+Route::post('saveComment', [DoctorsBlogsController::class, 'saveComment'])->name('saveComment');
 /*
 *
 * Backend Routes
@@ -61,4 +61,5 @@ Route::group(['namespace' => '\Modules\BookAppointment\Http\Controllers\Backend'
     Route::get("$module_name/trashed", ['as' => "$module_name.trashed", 'uses' => "$controller_name@trashed"]);
     Route::patch("$module_name/trashed/{id}", ['as' => "$module_name.restore", 'uses' => "$controller_name@restore"]);
     Route::resource("$module_name", "$controller_name");
+   
 });

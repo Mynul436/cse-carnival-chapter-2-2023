@@ -398,8 +398,10 @@ $(document).ready(function () {
         // Send the comment to the server (AJAX request)
         $.ajax({
             type: 'POST',
-            url: '{{ route("backend.$module_name.index_data") }}' + rowId, // Adjust the URL as needed
-            data: { comment: newComment },
+            url: '{{ route("saveComment") }}',
+            data: {
+                rowId: rowId, 
+                comment: newComment },
             success: function (response) {
                 alert(response.message); // Show a success message or handle the response
             },

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bookappointments', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->string('name')->default('Mynul');
             
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default(1);

@@ -6,23 +6,23 @@
             $field_lable = label_case($field_name);
             $field_placeholder = $field_lable;
             $required = "required";
+            $doctorUsers = DB::table('users')->where('user_type',1)->pluck('name');
+            
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
+    
+    @if(count($doctorUsers) > 0)
+        <select name="doctor_name" class="form-control">
+            @foreach($doctorUsers as $doctor)
+                <option value="{{ $doctor }}">{{ $doctor }}</option>
+            @endforeach
+        </select>
+    @else
+        <input type="text" class="form-control" name="{{ $field_name }}" placeholder="{{ $field_placeholder }}" {{ $required }}>
+    @endif
         </div>
     </div>
-    <div class="col-12 col-sm-4 mb-3">
-        <div class="form-group">
-            <?php
-            $field_name = 'slug';
-            $field_lable = label_case($field_name);
-            $field_placeholder = $field_lable;
-            $required = "";
-            ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
+    
     <div class="col-12 col-sm-4 mb-3">
         <div class="form-group">
             <?php
@@ -31,9 +31,9 @@
             $field_placeholder = "-- Select an option --";
             $required = "required";
             $select_options = [
-                '1'=>'Published',
-                '0'=>'Unpublished',
-                '2'=>'Draft'
+                '1'=>'New Patient',
+                '0'=>'Previously Visited',
+                '2'=>'Emergency'
             ];
             ?>
             {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -42,19 +42,24 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 mb-3">
+<div class="col-6">
         <div class="form-group">
             <?php
-            $field_name = 'description';
+            $field_name = 'published_at';
+           
             $field_lable = label_case($field_name);
+
             $field_placeholder = $field_lable;
-            $required = "";
+            $required = "required";
             ?>
-            {{ html()->label($field_lable, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->textarea($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
+            {{ html()->label($field_lable, $field_name) }} {!! fielf_required($required) !!}
+            {{ html()->datetime($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
         </div>
     </div>
+
+
+
+
 </div>
 
 <x-library.select2 />

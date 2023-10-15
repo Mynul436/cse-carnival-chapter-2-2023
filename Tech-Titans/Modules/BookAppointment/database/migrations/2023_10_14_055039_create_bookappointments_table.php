@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->string('slug')->nullable();
+            
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default(1);
 
             $table->integer('created_by')->unsigned()->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             $table->integer('deleted_by')->unsigned()->nullable();
-
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
